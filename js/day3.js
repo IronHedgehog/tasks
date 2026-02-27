@@ -221,3 +221,20 @@ function twoSum(nums, target) {
 // Чому це оптимально?
 
 // У звичайному циклі в циклі ти міг би перевірити одну й ту саму пару кілька разів. А тут ти проходиш повз кожного гостя лише один раз. Об'єкт у JavaScript працює надзвичайно швидко: він миттєво каже, чи є в ньому потрібне значення.
+
+var uniqueInOrder = function (iterable) {
+  //your code here - remember iterable can be a string or an array
+  const result = [];
+
+  for (let i = 0; i < iterable.length; i++) {
+    // Порівнюємо поточний елемент із тим, що стоїть перед ним
+    if (iterable[i] !== iterable[i - 1]) {
+      result.push(iterable[i]);
+    }
+  }
+
+  return result;
+};
+
+console.log(uniqueInOrder("AAAABBBCCDAABBB"));
+console.log(uniqueInOrder(["A", "B", "C", "D", "A", "B"]));
